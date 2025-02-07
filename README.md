@@ -18,7 +18,7 @@
 Código implementa um "Sorteador de Amigo Secreto" simples em JavaScript, 
 permitindo que usuários adicionem participantes e realizem o sorteio de maneira automatizada.
 
-Principais funcionalidades do código:
+<h2>Principais funcionalidades do código:</h2>
 
 Solicita o nome do usuário principal (quem está rodando o programa).
 Permite adicionar participantes manualmente a uma lista.
@@ -26,9 +26,9 @@ Exibe os participantes na tela, atualizando a lista dinamicamente.
 Realiza o sorteio do amigo secreto, garantindo que o usuário principal não se sorteie a si mesmo.
 Exibe o resultado do sorteio na tela.
 
-Explicação do funcionamento por partes:
+<h2>Explicação do funcionamento por partes:</h2>
 
-** 1️⃣ Captura o nome do usuário
+** 1️-Captura o nome do usuário
 Assim que o código é executado, ele exibe um alerta de boas-vindas e pede ao usuário que informe seu nome.
 Caso o nome seja válido, ele é adicionado automaticamente à lista de participantes.
 alert('Bem-vindo ao Sorteador de Amigo Secreto!');
@@ -43,13 +43,37 @@ if (!nomeUsuario) {
     alert(`${nomeUsuario} foi adicionado à lista de participantes!`);
 }
 
-** 2️⃣ Adiciona novos participantes
+** 2️-Adiciona novos participantes
 Os participantes podem ser adicionados manualmente pelo usuário através de um campo de entrada (input).
 A função adicionarAmigo() faz as seguintes verificações antes de adicionar o nome:
 ✔ Garante que o nome não esteja vazio.
 ✔ Evita nomes duplicados, independentemente de maiúsculas/minúsculas.
+// Função para adicionar participantes
+function adicionarAmigo() {
+    const inputAmigo = document.getElementById('amigo');//em uma variável para evitar acessos repetidos.
+    let amigo = inputAmigo.value.trim();
 
-** 3️⃣ Atualiza a lista de participantes
+    if (!amigo) {
+        console.warn('Por favor, insira um nome válido.');
+        return;
+    }
+
+    // Normaliza para evitar duplicatas com diferenças de maiúsculas/minúsculas
+    let amigoNormalizado = amigo.toLowerCase();
+
+    if (participantes.some(nome => nome.toLowerCase() === amigoNormalizado)) {
+        console.warn('Nome já adicionado na lista.');
+        return;
+    }
+
+    participantes.push(amigo);
+    console.log('Lista de participantes atualizada:', participantes);
+
+    atualizaListaIntegrante();
+    inputAmigo.value = ''; // Limpa o campo de entrada
+}
+
+** 3️-Atualiza a lista de participantes
 Cada vez que um novo participante é adicionado, a lista na tela é atualizada dinamicamente.
 A função atualizaListaIntegrante() cria um <li> para cada nome e o adiciona a um <ul> no HTML.
 
@@ -67,7 +91,8 @@ function atualizaListaIntegrante() {
 
     listaAmigos.appendChild(fragmento); // Adiciona os elementos ao DOM de uma vez
 }
-** 4️⃣ Sorteia um amigo secreto
+
+** 4️-Sorteia um amigo secreto
 Quando o botão de sorteio é acionado, a função sortearAmigo() escolhe aleatoriamente um nome da lista.
 ✔ Garante que o usuário principal não se sorteie a si mesmo.
 ✔ Mostra o nome sorteado na tela.
@@ -90,13 +115,13 @@ function sortearAmigo() {
     resultado.textContent = `O amigo sorteado é: ${amigoSorteado}`;
 }
 
-** Exemplo de uso
+<h2>Exemplo de uso</h2>
 O programa pergunta o nome do usuário.
 O usuário adiciona mais pessoas à lista de participantes.
 O sistema exibe os participantes na tela.
 Quando o sorteio é acionado, o sistema escolhe um nome aleatório e o exibe.
 
-** Melhorias que podem ser feitas
+<h2>Melhorias que podem ser feitas</h2>
 Garantir que todos os participantes tenham um par (ninguém fica sem amigo secreto).
 Evitar que alguém sorteie a mesma pessoa que sorteou ele.
 Criar um botão para reiniciar o sorteio sem recarregar a página.
