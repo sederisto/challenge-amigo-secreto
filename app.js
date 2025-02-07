@@ -1,6 +1,18 @@
 //O principal objetivo deste desafio é fortalecer suas habilidades em lógica de programação. Aqui você deverá desenvolver a lógica para resolver o problema.
 let participantes = []; //variável do tipo array, que armazenará os nomes dos integrantes inseridos.
 
+alert('Bem-vindo ao Sorteador de Amigo Secreto!');
+
+// Solicita o nome do usuário
+let nomeUsuario = prompt('Qual o seu nome?').trim();
+
+if (!nomeUsuario) {
+    alert('Nome inválido. Tente novamente.');
+} else if (confirm(`Adicionar ${nomeUsuario} à lista de participantes?`)) {
+    participantes.push(nomeUsuario);
+    alert(`${nomeUsuario} foi adicionado à lista de participantes!`);
+}
+
 // Função para adicionar participantes
 function adicionarAmigo() {
     const inputAmigo = document.getElementById('amigo');//em uma variável para evitar acessos repetidos.
