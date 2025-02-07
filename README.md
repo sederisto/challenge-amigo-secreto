@@ -1,3 +1,20 @@
+<h1>Sorteador de Amigo Secreto</h1>
+
+<h2>Sobre</h2>
+<p>Projeto utilizado nos cursos de lógica de programação da Alura.</p>
+## Tecnologias
+<div>
+  <img src="https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white">
+  <img src="https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+</div>
+<h2>Time</h2>
+<div>
+ <img src="https://avatars.githubusercontent.com/u/66964523?v=4" 
+   alt="" size="32" height="32" width="32" data-view-component="true" 
+   class="avatar circle"> 
+</div>
+<h2>Descritivo do Projeto</h2>
 Código implementa um "Sorteador de Amigo Secreto" simples em JavaScript, 
 permitindo que usuários adicionem participantes e realizem o sorteio de maneira automatizada.
 
